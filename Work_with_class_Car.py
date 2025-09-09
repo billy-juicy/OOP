@@ -1,17 +1,26 @@
+class Engine:
+
+    def __init__(self, power):
+        self.power = power
+
+    def start(self):
+        return "Двигатель запущен!"
+
 class Car:
 
-    def __init__(self, color, consumption, tank_volume, mileage=0):
+    def __init__(self, color, consumption, tank_volume, engine_power, mileage=0):
         self.color = color  # Цвет
         self.consumption = consumption  # Средний расход топлива
         self.tank_volume = tank_volume  # Объём бака
         self.reserve = tank_volume  # Текущий запас топлива
         self.mileage = mileage  # Пробег
+        self.engine = Engine(engine_power)  # Двигатель
         self.engine_on = False  # Состояние двигателя
 
     def start_engine(self):
         if not self.engine_on and self.reserve > 0:
             self.engine_on = True
-            return "Двигатель запущен!"
+            return self.engine.start()
         return "Двигатель уже был запущен!"
 
     def stop_engine(self):
@@ -38,7 +47,7 @@ class Car:
     def get_reserve(self):
         return self.reserve
 
-car_1 = Car(color="black", consumption=10, tank_volume=55)
+car_1 = Car(color="black", consumption=10, tank_volume=55, engine_power=150)
 print(car_1.start_engine())
 print(car_1.drive(100))
 print(car_1.drive(100))
@@ -49,7 +58,7 @@ print(f"Запас топлива {car_1.get_reserve()} л.")
 print(car_1.stop_engine())
 print(car_1.drive(100))
 print()
-car_2 = Car(color="yellow", consumption=15, tank_volume=50)
+car_2 = Car(color="yellow", consumption=15, tank_volume=50, engine_power=200)
 print(car_2.start_engine())
 print(car_2.drive(150))
 print(car_2.drive(300))
