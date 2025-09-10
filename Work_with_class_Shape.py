@@ -7,6 +7,7 @@ class Shape:
     def move(self):
         raise NotImplementedError("Переопределить методы в производных классах!")
 
+
 class Circle(Shape):
 
     def __init__(self, color, edge=0):
@@ -14,6 +15,7 @@ class Circle(Shape):
 
     def move(self):
         return "Катится"
+
 
 class Rectangle(Shape):
 

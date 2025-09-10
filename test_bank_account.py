@@ -3,6 +3,7 @@ from Work_with_class_BankAccount import BankAccount
 
 
 class TestBankAccount(unittest.TestCase):
+
     def test_initial_balance(self):
         account = BankAccount(100)  # Создаем счет с балансом 100
         self.assertEqual(account.balance, 100)  # Проверяем равенство

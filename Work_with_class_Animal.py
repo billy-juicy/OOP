@@ -6,6 +6,7 @@ class Animal:
     def sound(self):
         return "УУУУУУ"
 
+
 class Dog(Animal):
 
     def __init__(self, color, big_size):
@@ -14,6 +15,7 @@ class Dog(Animal):
 
     def sound(self):
         return "гав-гав"
+
 
 class Cat(Animal):
 
